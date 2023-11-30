@@ -1,0 +1,53 @@
+/* Create/** SHOW THE TOP 15 SALARIES IN 2023 FOR MAJOR LEAGUE SOCCER WHILE COMPARING THEIR ANNUAL SALARY WITH THEIR NET WORTH */
+
+CREATE TABLE mls_top (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    fullname TEXT,
+    age INTEGER,
+    club TEXT,
+    country TEXT);
+    
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Lionel Messi", 36, "Inter Miami", "Argentina");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Lorenzo Insigne", 32, "Toronto", "Italy");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Xherdan Shaqiri", 31, "Chicago", "Switzerland");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Chicharito", 35, "LA Galaxy", "Mexico");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Hector Herrera", 33, "Houston Dynamo", "Mexico");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Christian Benteke", 32, "DC United", "Belgium");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Josef Martinez",30, "Inter Miami","Venezuela");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Sebastian Driussi", 27, "Austin", "Argentina");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Carls Gil", 30, "Revolution", "Spain");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Teemu Pukke", 30, "Minnesota", "Finland");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Federico Bernarde", 29, "Toronto", "Italy");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Douglas Costa", 32, "LA Galaxy", "Brazil");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Carlos Vela", 34, "LA FC", "Mexico");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Hany Mukhtar", 28, "Nashville", "Germany");
+INSERT INTO mls_top (fullname, age, club, country) VALUES ("Nicolas Lodeiro ", 34, "Seattle", "Uruguay");
+
+CREATE table salary (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    mls_top_id INTEGER,
+    salary_year INTEGER,
+    net_worth INTEGER);
+    
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (1, "12 million", "48 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (2, "7.5 million", "37.5 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (3, "7.35 million", "22 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (4, "6 million", "12 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (5, "4.75 million", "15.2 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (6, "4.25 million", "13.75 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (7, "4 million", "8 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (8, "3.8 million", "15.3 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (9, "3.25 million", "9.75 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (10, "3.2 million", "12.8 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (11, "3.125 million", "16.25 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (12, "3 million", "6 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (13, "3 million", "6 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (14, "2.9 million", "11.6 million");
+INSERT INTO salary (mls_top_id, salary_year,net_worth) VALUES (15, "2.64 million", "5.2 million");
+
+
+/*Return total net worth for each top 15 MLS player*/
+SELECT mls_top.fullname,mls_top.age,salary.salary_year, salary.net_worth
+FROM mls_top
+JOIN salary
+ON mls_top.id = salary.mls_top_id;
