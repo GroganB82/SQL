@@ -1,3 +1,5 @@
+#In this SQL, I'm querying a database with 11 tables in it related to a digital media store's media records and customers. 
+
 #1. Show Customers (their full names, customer ID, and country) who are not in the US.
 SELECT FirstName, LastName, CustomerId, Country 
 FROM chinook.customers 
